@@ -1,0 +1,10 @@
+﻿# Archivos del sistema y editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+
+# Credenciales y configuraciones locales
+.env
+*.local.php
+config/db-local.php
