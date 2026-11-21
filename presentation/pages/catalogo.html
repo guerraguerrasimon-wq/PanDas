@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f3ec">
+  <title>Nuestro catálogo · DAS Panadería</title>
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/global.css">
+  <link rel="stylesheet" href="../../assets/css/components/navbar.css">
+  <link rel="stylesheet" href="../../assets/css/components/footer.css">
+  <link rel="stylesheet" href="../../assets/css/components/cards.css">
+  <link rel="stylesheet" href="../../assets/css/components/feedback.css">
+  <link rel="stylesheet" href="../../assets/css/presentation/catalogo.css">
+  <script src="../../assets/js/global.js" defer></script>
+  <script src="../../assets/js/components/feedback.js" defer></script>
+  <script src="../../assets/js/components/validation.js" defer></script>
+  <script src="../../assets/js/components/navbar.js" defer></script>
+  <script src="../../assets/js/presentation/catalogo.js" defer></script>
+</head>
+<body data-area="presentation" data-page="catalogo">
+  <header class="site-header">
+    <div class="wrap header-in">
+      <a class="brand" href="../index.html" aria-label="DAS Panadería, inicio"><strong>DAS</strong><small>PANADERÍA</small></a>
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+        <div class="nav-links"><a href="../index.html" data-nav="inicio">Inicio</a><a href="catalogo.html" data-nav="catalogo" aria-current="page">Nuestro Catálogo</a><a href="nosotros.html" data-nav="nosotros">Nosotros</a><a href="ubicaciones.html#envios" data-nav="envios">Envíos y Entregas</a><a href="ubicaciones.html" data-nav="ubicaciones">Visítanos</a></div>
+        <div class="account-actions">
+          <a class="btn btn-olive" href="../auth/register.html">Registrarse <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+          <a class="btn btn-soft" href="../auth/login.html">Iniciar sesión <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+        </div>
+        <div class="account-chip" hidden>
+          <button type="button" class="chip-btn" aria-haspopup="true" aria-expanded="false"><span class="chip-ini">DA</span><span class="chip-name">Hola</span></button>
+          <div class="chip-menu" hidden><a href="../../functionality/dashboard.html">Mi panel</a><a href="../../functionality/pages/favoritos.html">Mis favoritos</a><a href="../../functionality/pages/perfil.html">Mi perfil</a><button type="button" data-logout>Cerrar sesión</button></div>
+        </div>
+      </nav>
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">☰</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="page-hero fade-in">
+      <div><p class="crumbs"><a href="../index.html">Inicio</a> / Nuestro pan</p><h1>Tu próximo favorito<br>está aquí.</h1></div>
+      <div><p>Panes con carácter, hojaldres crujientes y pequeños caprichos. Todo hecho en nuestro obrador.</p><small>Elaboración diaria · Consulta disponibilidad en tienda</small></div>
+    </section>
+
+    <div class="catalog">
+      <aside class="filters card" id="filters" aria-label="Filtros del catálogo">
+        <h2>A tu gusto</h2>
+        <span class="eyebrow">Categorías</span>
+        <ul class="cat-list" id="cat-list"></ul>
+        <span class="eyebrow">Preferencias</span>
+        <div class="prefs" id="prefs"></div>
+        <span class="eyebrow">Precio máximo</span>
+        <div class="price-box"><input type="range" id="price" min="0" max="20000" step="500" value="20000" aria-label="Precio máximo"><div class="price-row"><span>$0</span><b id="price-out">$20.000</b></div></div>
+        <button type="button" class="btn btn-soft" id="apply">Aplicar filtros <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></button>
+        <button type="button" class="link-btn" id="clear">Limpiar filtros</button>
+        <p class="note-box"><b>¿Tienes alguna alergia?</b> Consulta los ingredientes con nuestro equipo antes de elegir.</p>
+      </aside>
+
+      <section class="results" aria-label="Productos">
+        <div class="toolbar">
+          <div class="search"><span class="search-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg></span><label class="sr-only" for="q">Buscar</label><input id="q" type="search" placeholder="Buscar pan, croissant, ingredientes…" autocomplete="off"></div>
+          <label class="select-pill"><span class="sr-only">Ordenar por</span><select id="sort"><option value="rec">Recomendados</option><option value="asc">Precio: menor a mayor</option><option value="desc">Precio: mayor a menor</option><option value="az">Nombre A–Z</option></select><span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></label>
+          <button type="button" class="btn btn-soft" id="filters-toggle" aria-expanded="false" aria-controls="filters">Filtros</button>
+        </div>
+        <p class="count" id="count" aria-live="polite"></p>
+        <div class="grid-3" id="grid"></div>
+        <div class="empty card" id="empty" hidden><h3>No encontramos nada con esos filtros.</h3><p>Prueba con otra búsqueda o limpia los filtros.</p><button type="button" class="btn btn-olive sentence" id="empty-clear">Limpiar filtros <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></button></div>
+        <p class="end-note" id="end-note">Has visto todo el obrador. ¿Ya tienes un favorito?</p>
+      </section>
+    </div>
+
+    <section class="band fade-in">
+      <div class="band-left"><span class="band-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><h2>El buen pan tiene su momento.</h2><p>Horneamos en pequeñas tandas. La selección puede variar a lo largo del día.</p></div></div>
+      <a class="link-arrow" href="ubicaciones.html">Consulta tu tienda <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <div class="site-footer">
+      <div class="footer-grid">
+        <div><a class="brand" href="../index.html"><strong>DAS</strong></a><p class="footer-tag">El pan de siempre.<br>Una forma nueva de vivirlo.</p></div>
+        <div><h4>Explora</h4><ul><li><a href="../index.html">Inicio</a></li><li><a href="catalogo.html">Nuestro pan</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="ubicaciones.html#envios">Envíos y entregas</a></li></ul></div>
+        <div><h4>Encuéntranos</h4><ul><li>Consulta tu punto de recogida</li><li>Lun–sáb · 07:30–20:00</li><li>Dom · 08:00–14:00</li><li><a href="ubicaciones.html">Ver ubicaciones</a></li><li><a href="contacto.html">Contacto</a></li></ul></div>
+        <div><h4>Hecho con calma</h4><ul><li>Harina, agua, tiempo.</li><li>Y mucho oficio.</li></ul></div>
+      </div>
+      <div class="footer-bottom"><span>© DAS 2026</span><nav aria-label="Legal"><a href="#">Privacidad</a><a href="#">Cookies</a><a href="#">Accesibilidad</a></nav></div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -862,13 +862,13 @@ LEFT JOIN usuarios uc ON uc.id = s.usuario_cierre_id;
 CREATE VIEW vw_desperdicios_detalle AS
 SELECT
   d.id,
-  d.fecha_hora,
-  d.etapa,
-  IF(d.materia_prima_id IS NOT NULL, 'MATERIA_PRIMA', 'PRODUCTO') AS tipo_item,
-  COALESCE(mp.nombre, p.nombre) AS item,
-  d.cantidad,
-  COALESCE(m.nombre, d.descripcion_motivo) AS motivo,
-  CONCAT(u.nombres, ' ', u.apellidos) AS registrado_por
+d.fecha_hora,
+d.etapa,
+IF(d.materia_prima_id IS NOT NULL, 'MATERIA_PRIMA', 'PRODUCTO') AS tipo_item,
+COALESCE(mp.nombre, p.nombre) AS item,
+d.cantidad,
+COALESCE(m.nombre, d.descripcion_motivo) AS motivo,
+CONCAT(u.nombres, ' ', u.apellidos) AS registrado_por
 FROM desperdicios d
 LEFT JOIN materias_primas mp ON mp.id = d.materia_prima_id
 LEFT JOIN productos p ON p.id = d.producto_id

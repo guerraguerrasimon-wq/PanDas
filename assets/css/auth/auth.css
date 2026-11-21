@@ -1,0 +1,204 @@
+/* DAS Panadería · inicio de sesión, registro y recuperación de contraseña */
+/* Estilos compartidos por Registro y Login (pantalla completa).
+   Usa las variables de colores de style_BasePresentacion.css. */
+:root{--ok:#2f8f5b;--warn:#c98a1b}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- Estructura: panel + formulario ---------- */
+.auth-page{min-height:100vh;min-height:100dvh;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);padding:14px;gap:14px;background:var(--bg)}
+.auth-page.panel-right .auth-panel{order:2}
+.auth-panel{position:relative;overflow:hidden;border-radius:20px;background:#141414;color:#f1eee7;min-height:calc(100dvh - 28px);display:flex;flex-direction:column;justify-content:flex-end;isolation:isolate}
+.panel-img.img-slot{position:absolute;inset:0;z-index:0;cursor:default;background:radial-gradient(120% 80% at 50% 0%,#4a0d10 0%,#171717 58%)}
+.panel-img .slot-img{filter:grayscale(1) contrast(1.08)}
+.panel-img:after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.12) 38%,rgba(0,0,0,.82));pointer-events:none}
+.panel-content{position:relative;z-index:2;width:min(100%,520px);margin:0 auto;padding:44px 36px;text-align:center;pointer-events:none}
+.panel-brand{display:inline-flex;align-items:center;gap:10px;margin-bottom:20px}
+.panel-brand strong{font:900 46px/1 "Inter",sans-serif;letter-spacing:-2px}
+.panel-brand span{font-size:10px;font-weight:700;line-height:1.25;text-align:left}
+.panel-content h2{font:800 clamp(40px,4.4vw,64px)/.92 "Inter",sans-serif;text-transform:uppercase;letter-spacing:-.02em;margin:0 0 12px}
+.panel-content>p{font-size:16px;line-height:1.55;color:rgba(255,255,255,.78);margin:0}
+
+.auth-main{display:flex;flex-direction:column;padding:6px 28px 28px;min-width:0}
+.auth-top{display:flex;justify-content:space-between;align-items:center;min-height:48px}
+.back-link{font-size:14px;font-weight:600;color:var(--text);text-decoration:none}
+.back-link:hover{color:var(--accent)}
+.auth-card{margin:auto;width:100%;max-width:500px;padding:12px 0}
+.auth-title{font:800 clamp(36px,3.6vw,50px)/.95 "Inter",sans-serif;text-transform:uppercase;text-align:center;margin:0 0 8px}
+.auth-sub{text-align:center;color:var(--muted);font-size:15px;line-height:1.5;margin:0 0 26px}
+
+/* ---------- Botones sociales ---------- */
+.social-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.social-btn{display:flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 14px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--text);font:600 15px "Inter",sans-serif;cursor:pointer;transition:transform .2s,border-color .2s,background .2s}
+.social-btn:hover{border-color:var(--text);transform:translateY(-2px)}
+.social-btn:active{transform:translateY(0)}
+.social-btn svg{width:21px;height:21px;flex:none}
+.divider{display:flex;align-items:center;gap:14px;color:var(--muted);font-size:13px;margin:22px 0}
+.divider:before,.divider:after{content:"";flex:1;height:1px;background:var(--line)}
+
+/* ---------- Campos ---------- */
+.field{display:block;margin-bottom:16px}
+.label{display:block;font-size:13px;font-weight:700;margin-bottom:7px}
+.control{position:relative}
+.control input,.control select{width:100%;height:52px;padding:0 46px 0 15px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--text);font:16px "Inter",sans-serif;outline:0;appearance:none;-webkit-appearance:none;transition:border-color .2s,box-shadow .2s,background .2s}
+.control input::placeholder{color:var(--muted);opacity:.8}
+.control select:invalid{color:var(--muted)}
+.control input:hover,.control select:hover{border-color:var(--muted)}
+.control input:focus,.control select:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(85,102,58,.14)}
+.control.select:after{content:"";position:absolute;right:18px;top:50%;width:8px;height:8px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:translateY(-70%) rotate(45deg);pointer-events:none;transition:transform .2s}
+.control.select:focus-within:after{transform:translateY(-30%) rotate(225deg)}
+.control.select input,.control.select select{padding-right:46px}
+.ok-icon{position:absolute;right:14px;top:50%;width:20px;height:20px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;font-size:12px;line-height:1;transform:translateY(-50%) scale(0);transition:transform .25s cubic-bezier(.3,1.7,.5,1);pointer-events:none}
+.field.is-valid .ok-icon{transform:translateY(-50%) scale(1)}
+.field.is-valid .control input,.field.is-valid .control select{border-color:var(--ok)}
+.control.select .ok-icon{right:40px}
+.control.has-toggle .ok-icon{right:52px}
+.field.is-invalid .control input,.field.is-invalid .control select{border-color:var(--accent)}
+.field-error{font-size:12.5px;line-height:1.4;color:var(--accent);margin:6px 0 0}
+.field-error:empty{display:none}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+.eye{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:40px;height:40px;border:0;background:none;color:var(--muted);cursor:pointer;display:grid;place-items:center;border-radius:50%;transition:color .2s,background .2s}
+.eye:hover{color:var(--text);background:rgba(127,127,127,.12)}
+.eye svg{width:20px;height:20px}
+.eye .off{display:none}
+.eye.on .on-icon{display:none}
+.eye.on .off{display:block}
+
+.meter{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
+.meter i{height:5px;border-radius:3px;background:var(--line);transition:background .25s}
+.meter[data-level="Baja"] i:nth-child(1){background:var(--accent)}
+.meter[data-level="Media"] i:nth-child(-n+2){background:var(--warn)}
+.meter[data-level="Alta"] i{background:var(--ok)}
+.meter-label{font-size:12.5px;color:var(--muted);margin:6px 0 0}
+.meter[data-level="Baja"]+.meter-label{color:var(--accent)}
+.meter[data-level="Media"]+.meter-label{color:var(--warn)}
+.meter[data-level="Alta"]+.meter-label{color:var(--ok)}
+
+.check{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.5;cursor:pointer}
+.check input{appearance:none;-webkit-appearance:none;flex:none;width:21px;height:21px;margin:1px 0 0;border:1.5px solid var(--line);border-radius:6px;background:var(--surface);display:grid;place-items:center;cursor:pointer;transition:background .2s,border-color .2s}
+.check input:hover{border-color:var(--muted)}
+.check input:checked{background:var(--accent);border-color:var(--accent)}
+.check input:checked:after{content:"✓";color:#fff;font-size:13px;line-height:1}
+.check input:focus-visible{outline:3px solid rgba(85,102,58,.3);outline-offset:2px}
+.check a{color:var(--accent);font-weight:600}
+
+/* ---------- Botón principal y mensajes ---------- */
+.submit{width:100%;height:54px;border:0;border-radius:12px;background:var(--accent);color:#fff;font:700 15px "Inter",sans-serif;text-transform:uppercase;letter-spacing:.02em;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:12px;transition:filter .2s,transform .2s}
+.submit:hover{filter:brightness(.92);transform:translateY(-1px)}
+.submit .spinner{display:none;width:18px;height:18px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
+.submit.is-loading{pointer-events:none;filter:brightness(.9)}
+.submit.is-loading .spinner{display:block}
+.submit.is-loading .arrow{display:none}
+.form-msg{min-height:20px;font-size:14px;color:var(--accent);margin:6px 0 12px;text-align:center}
+.switch-line{text-align:center;font-size:14px;color:var(--muted);margin:22px 0 0}
+.switch-line a{color:var(--accent);font-weight:700;text-decoration:none}
+.switch-line a:hover{text-decoration:underline}
+
+.shake{animation:shake .38s}
+@keyframes shake{0%,100%{transform:none}20%{transform:translateX(-7px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(3px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- Solo celular / solo escritorio ---------- */
+.m-hero,.welcome,.back-step{display:none}
+
+/* ---------- Celular: se parece a la primera referencia ---------- */
+@media(max-width:900px){
+  .auth-page{display:block;padding:0}
+  .auth-panel{display:none}
+  .desktop-only{display:none!important}
+  .auth-main{padding:12px 20px 32px;min-height:100vh;min-height:100dvh}
+  .auth-card{margin:0 auto;padding-top:4px}
+  .m-hero{display:block;position:relative;height:min(32vh,290px);border-radius:26px;overflow:hidden;margin:6px 0 26px}
+  .m-hero.small{height:min(22vh,190px);margin-bottom:20px}
+  .m-hero .img-slot{position:absolute;inset:0;cursor:default;background:radial-gradient(120% 90% at 50% 0%,#4a0d10 0%,#1a1a1a 62%)}
+  .m-hero .slot-img{filter:grayscale(1) contrast(1.08)}
+  .control input,.control select{border-radius:999px;padding-left:22px}
+  .control.select .ok-icon{right:42px}
+  .submit,.social-btn{border-radius:999px}
+  .auth-title{font-size:clamp(36px,10vw,46px)}
+  .back-step{display:inline-flex;align-items:center;gap:6px;border:0;background:none;color:var(--text);font:600 15px "Inter",sans-serif;cursor:pointer;padding:6px 0;margin-bottom:10px}
+  .social-row.compact .txt{display:inline}
+}
+
+/* ===== Tema panadería ===== */
+.slot-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.panel-img.img-slot{background:radial-gradient(120% 80% at 50% 0%,#7a8c55 0%,#2b3022 62%)}
+.panel-img:after{background:linear-gradient(rgba(0,0,0,.18),rgba(0,0,0,.08) 38%,rgba(20,24,16,.82))}
+.panel-img .slot-img,.m-hero .slot-img{filter:none}
+.m-hero .img-slot{background:radial-gradient(120% 90% at 50% 0%,#7a8c55 0%,#2b3022 62%)}
+.auth-panel{border-radius:28px}
+.auth-title,.panel-content h2,.success-card h2{text-transform:none;font-weight:600;letter-spacing:-.03em;line-height:1.04}
+.auth-title{font-size:clamp(30px,3.2vw,42px)}
+.panel-content h2{font-size:clamp(34px,3.8vw,54px)}
+.success-card h2{font-size:clamp(30px,4vw,40px)}
+.panel-brand strong{font-weight:800;letter-spacing:-.045em}
+.panel-brand span{letter-spacing:.2em}
+.submit{text-transform:none;font-size:15px;font-weight:600;letter-spacing:0;border-radius:999px}
+.social-btn{border-radius:999px;background:#fff}
+.control input,.control select{background:#fff}
+.back-link{color:var(--olive)}
+.step,.feature-list li{border-radius:16px}
+
+/* ===== Registro ===== */
+/* Registro: pasos del panel, teléfono con país, progreso y pantalla de bienvenida en celular */
+.steps{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:10px;text-align:left}
+.step{display:flex;align-items:center;gap:14px;padding:15px 16px;border-radius:12px;background:rgba(255,255,255,.1);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:rgba(255,255,255,.72);font-weight:600;font-size:15px;transition:background .3s,color .3s,transform .3s}
+.step .num{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:13px;background:rgba(255,255,255,.2);color:#fff;transition:background .3s,color .3s}
+.step.is-active{background:#f6f3ec;color:#111;transform:translateX(4px)}
+.step.is-active .num{background:#111;color:#fff}
+.step.is-done .num{background:var(--ok);color:#fff}
+
+/* Teléfono: el número aparece al elegir el país */
+.reveal{display:grid;grid-template-rows:0fr;margin-top:0;transition:grid-template-rows .3s ease,margin-top .3s ease}
+.reveal>div{overflow:hidden;min-height:0}
+.reveal.open{grid-template-rows:1fr;margin-top:10px}
+.control.prefixed input{padding-left:66px}
+.prefix{position:absolute;left:1px;top:1px;bottom:1px;width:56px;display:grid;place-items:center;border-right:1px solid var(--line);border-radius:11px 0 0 11px;font-weight:700;font-size:15px;color:var(--muted);pointer-events:none}
+
+.seg-progress{display:none;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 22px}
+.seg-progress i{height:5px;border-radius:3px;background:var(--line);transition:background .3s}
+.seg-progress i.on{background:var(--accent)}
+.stack{display:grid;gap:12px}
+#terms-field{margin-bottom:6px}
+
+/* Celular: primero la bienvenida; "Registrarme con correo" muestra el formulario */
+@media(max-width:900px){
+  .seg-progress{display:grid}
+  body.has-welcome .form-wrap{display:none}
+  body.has-welcome .welcome{display:block}
+  body.has-welcome.show-form .welcome{display:none}
+  body.has-welcome.show-form .form-wrap{display:block}
+  body.has-welcome.show-form .m-hero{display:none}
+  .control.prefixed input{padding-left:72px}
+  .prefix{border-radius:999px 0 0 999px;width:60px}
+  .two-col{grid-template-columns:1fr}
+}
+
+/* ===== Login ===== */
+/* Login: lista del panel, enlace de contraseña olvidada y botones sociales compactos */
+.feature-list{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:8px;text-align:left}
+.feature-list li{padding:13px 16px;border-radius:12px;background:rgba(255,255,255,.1);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);font-size:15px;font-weight:600;color:rgba(255,255,255,.88)}
+.feature-list li:before{content:"✓";margin-right:12px;color:#fff}
+.label-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:7px}
+.label-row .label{margin:0}
+.link-btn{border:0;background:none;padding:0;color:var(--accent);font:600 13px "Inter",sans-serif;cursor:pointer}
+.link-btn:hover{text-decoration:underline}
+.social-row.compact .social-btn{height:56px}
+.social-row.compact .txt{display:none}
+@media(max-width:900px){.social-row.compact .txt{display:inline}}
+
+/* ===== Verificación y recuperación ===== */
+.otp{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin:6px 0 4px}
+.otp input{width:100%;height:64px;text-align:center;border:1px solid var(--line);border-radius:16px;background:#fff;color:var(--text);font:600 26px "Inter",sans-serif;outline:0;transition:border-color .2s,box-shadow .2s}
+.otp input:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(85,102,58,.14)}
+.demo-box{margin:0 0 18px;padding:14px 16px;border-radius:16px;background:var(--sage);color:var(--text);font-size:14px;line-height:1.5}
+.demo-box strong{font-size:18px;letter-spacing:.14em}
+.link-btn:disabled{color:var(--muted);cursor:default;text-decoration:none}
+.auth-links{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:20px;font-size:14px;color:var(--muted)}
+.auth-links a{color:var(--accent);font-weight:700;text-decoration:none}
+.auth-links a:hover{text-decoration:underline}
+.confirm-badge{display:grid;place-items:center;width:88px;height:88px;margin:0 auto 20px;border-radius:50%;background:var(--sage);color:var(--accent)}
+.confirm-badge svg{width:44px;height:44px;display:block}
+a.submit{text-decoration:none}
+.expired{text-align:center}
+.expired p{color:var(--muted);margin:0 0 18px}

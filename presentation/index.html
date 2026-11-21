@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f3ec">
+  <title>DAS Panadería · Buenos días. Mejor pan.</title>
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="stylesheet" href="../assets/css/components/navbar.css">
+  <link rel="stylesheet" href="../assets/css/components/footer.css">
+  <link rel="stylesheet" href="../assets/css/components/cards.css">
+  <link rel="stylesheet" href="../assets/css/components/feedback.css">
+  <link rel="stylesheet" href="../assets/css/presentation/home.css">
+  <script src="../assets/js/global.js" defer></script>
+  <script src="../assets/js/components/feedback.js" defer></script>
+  <script src="../assets/js/components/validation.js" defer></script>
+  <script src="../assets/js/components/navbar.js" defer></script>
+  <script src="../assets/js/presentation/home.js" defer></script>
+</head>
+<body data-area="presentation" data-page="inicio">
+  <header class="site-header">
+    <div class="wrap header-in">
+      <a class="brand" href="index.html" aria-label="DAS Panadería, inicio"><strong>DAS</strong><small>PANADERÍA</small></a>
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+        <div class="nav-links"><a href="index.html" data-nav="inicio" aria-current="page">Inicio</a><a href="pages/catalogo.html" data-nav="catalogo">Nuestro Catálogo</a><a href="pages/nosotros.html" data-nav="nosotros">Nosotros</a><a href="pages/ubicaciones.html#envios" data-nav="envios">Envíos y Entregas</a><a href="pages/ubicaciones.html" data-nav="ubicaciones">Visítanos</a></div>
+        <div class="account-actions">
+          <a class="btn btn-olive" href="auth/register.html">Registrarse <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+          <a class="btn btn-soft" href="auth/login.html">Iniciar sesión <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+        </div>
+        <div class="account-chip" hidden>
+          <button type="button" class="chip-btn" aria-haspopup="true" aria-expanded="false"><span class="chip-ini">DA</span><span class="chip-name">Hola</span></button>
+          <div class="chip-menu" hidden><a href="../functionality/dashboard.html">Mi panel</a><a href="../functionality/pages/favoritos.html">Mis favoritos</a><a href="../functionality/pages/perfil.html">Mi perfil</a><button type="button" data-logout>Cerrar sesión</button></div>
+        </div>
+      </nav>
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">☰</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-card fade-in">
+        <span class="eyebrow">Pan artesano. Sin atajos.</span>
+        <h1>Buenos días.<br>Mejor pan.</h1>
+        <p class="lead">Masa madre, ingredientes honestos y el tiempo que cada hogaza necesita. Así empieza el día en DAS.</p>
+        <a class="btn btn-olive sentence" href="pages/catalogo.html">Descubre nuestro pan <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+        <div class="hero-meta"><p>Elaborado cada mañana, aquí en nuestro obrador.</p><p class="clock"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>Del horno a tu mesa.</p></div>
+      </div>
+      <div class="hero-photo thumb fade-in">
+        <img src="../assets/images/banners/hero-hogaza.jpg" alt="Hogaza de masa madre recién horneada">
+        <div class="signature"><div><span class="eyebrow">La firma de la casa</span><strong>Hogaza de masa madre</strong><small>Corteza crujiente. Interior de otro mundo.</small></div><a class="go" href="pages/catalogo.html" aria-label="Ver la hogaza en el catálogo"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></div>
+      </div>
+    </section>
+
+    <ul class="pillars">
+      <li><span>01</span>Harinas seleccionadas</li><li><span>02</span>Fermentación natural</li><li><span>03</span>Hecho a mano</li><li><span>04</span>Horneado cada día</li>
+    </ul>
+
+    <section class="trio">
+      <article class="stat-card fade-in"><h3>El ingrediente que<br>no se puede acelerar.</h3><div class="stat-row"><strong>24 h</strong><p>de fermentación lenta.<br>Más sabor, mejor textura.</p></div></article>
+      <article class="note-card fade-in"><span class="note-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14"/><path d="M5 19c2-5 5-8 9-10"/></svg></span><h3>Poco, pero bueno.</h3><p>Harina, agua y sal.<br>Lo demás es oficio.</p></article>
+      <article class="note-card beige fade-in"><span class="note-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><h3>Tu pan de barrio.</h3><p>Un pequeño ritual.<br>Un lugar al que volver.</p></article>
+    </section>
+
+    <section class="section" id="favoritos">
+      <div class="section-head fade-in"><div><span class="eyebrow">Recién salidos del horno</span><h2>Los de siempre.<br>Tus favoritos.</h2></div><a class="link-arrow" href="pages/catalogo.html">Ver todo el catálogo <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></div>
+      <div class="grid-4" id="fav-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="split section" id="obrador">
+      <div class="split-photo thumb fade-in"><img src="../assets/images/banners/obrador.jpg" alt="Una persona amasando a mano en nuestro obrador"></div>
+      <div class="split-card fade-in">
+        <span class="eyebrow">Dentro de DAS</span>
+        <h2>Manos a la masa.<br>Corazón en el barrio.</h2>
+        <p>Antes de que la ciudad despierte, nuestro obrador ya está en marcha. Amasamos a mano y horneamos en pequeñas tandas para que el pan llegue como tiene que llegar.</p>
+        <a class="link-arrow" href="pages/nosotros.html">Conoce el obrador <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+      </div>
+    </section>
+
+    <section class="section how">
+      <h2 class="fade-in">El buen pan, sin complicaciones.</h2>
+      <div class="how-steps">
+        <div class="how-step fade-in"><span class="how-num">01</span><div><h3>Encuentra tu favorito</h3><p>Explora panes, bollería y dulces.</p></div></div>
+        <div class="how-step fade-in"><span class="how-num">02</span><div><h3>Elige con tranquilidad</h3><p>Consulta ingredientes y disponibilidad.</p></div></div>
+        <div class="how-step fade-in"><span class="how-num">03</span><div><h3>Pásate por DAS</h3><p>Te esperamos con el horno encendido.</p></div></div>
+      </div>
+    </section>
+
+    <section class="band band-sage cta fade-in">
+      <div><h2>Siempre hay un buen motivo<br>para pasar por DAS.</h2><p>Lun–sáb · 07:30–20:00 &nbsp;/&nbsp; Dom · 08:00–14:00</p></div>
+      <div class="cta-side"><a class="btn btn-olive sentence" href="pages/ubicaciones.html">Encuentra tu DAS <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a><small>Pan recién hecho. Te esperamos.</small></div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <div class="site-footer">
+      <div class="footer-grid">
+        <div><a class="brand" href="index.html"><strong>DAS</strong></a><p class="footer-tag">El pan de siempre.<br>Una forma nueva de vivirlo.</p></div>
+        <div><h4>Explora</h4><ul><li><a href="index.html">Inicio</a></li><li><a href="pages/catalogo.html">Nuestro pan</a></li><li><a href="pages/nosotros.html">Nosotros</a></li><li><a href="pages/ubicaciones.html#envios">Envíos y entregas</a></li></ul></div>
+        <div><h4>Encuéntranos</h4><ul><li>Consulta tu punto de recogida</li><li>Lun–sáb · 07:30–20:00</li><li>Dom · 08:00–14:00</li><li><a href="pages/ubicaciones.html">Ver ubicaciones</a></li><li><a href="pages/contacto.html">Contacto</a></li></ul></div>
+        <div><h4>Hecho con calma</h4><ul><li>Harina, agua, tiempo.</li><li>Y mucho oficio.</li></ul></div>
+      </div>
+      <div class="footer-bottom"><span>© DAS 2026</span><nav aria-label="Legal"><a href="#">Privacidad</a><a href="#">Cookies</a><a href="#">Accesibilidad</a></nav></div>
+    </div>
+  </footer>
+</body>
+</html>

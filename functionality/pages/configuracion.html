@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f3ec">
+  <title>Configuración · DAS Panadería</title>
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/variables.css">
+  <link rel="stylesheet" href="../../assets/css/global.css">
+  <link rel="stylesheet" href="../../assets/css/components/navbar.css">
+  <link rel="stylesheet" href="../../assets/css/components/footer.css">
+  <link rel="stylesheet" href="../../assets/css/components/cards.css">
+  <link rel="stylesheet" href="../../assets/css/components/feedback.css">
+  <link rel="stylesheet" href="../../assets/css/functionality/dashboard.css">
+  <script src="../../assets/js/global.js" defer></script>
+  <script src="../../assets/js/components/feedback.js" defer></script>
+  <script src="../../assets/js/components/validation.js" defer></script>
+  <script src="../../assets/js/components/navbar.js" defer></script>
+  <script src="../../assets/js/functionality/dashboard.js" defer></script>
+</head>
+<body data-area="functionality" data-page="configuracion">
+  <header class="site-header">
+    <div class="wrap header-in">
+      <a class="brand" href="../dashboard.html" aria-label="DAS Panadería, inicio"><strong>DAS</strong><small>PANADERÍA</small></a>
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+        <div class="nav-links"><a href="../dashboard.html" data-nav="panel">Mi panel</a><a href="favoritos.html" data-nav="favoritos">Favoritos</a><a href="perfil.html" data-nav="perfil">Mi perfil</a><a href="configuracion.html" data-nav="configuracion" aria-current="page">Configuración</a></div>
+        <div class="nav-extra"><a class="btn btn-soft" href="../../presentation/index.html">Ver el sitio <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a></div>
+        <div class="account-chip" hidden>
+          <button type="button" class="chip-btn" aria-haspopup="true" aria-expanded="false"><span class="chip-ini">DA</span><span class="chip-name">Hola</span></button>
+          <div class="chip-menu" hidden><a href="../dashboard.html">Mi panel</a><a href="favoritos.html">Mis favoritos</a><a href="perfil.html">Mi perfil</a><button type="button" data-logout>Cerrar sesión</button></div>
+        </div>
+      </nav>
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">☰</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="page-hero fade-in">
+      <div><p class="crumbs"><a href="../dashboard.html">Mi panel</a> / Configuración</p><h1>Configuración.</h1></div>
+      <div><p>Elige cómo quieres que te escribamos y mantén tu cuenta segura.</p></div>
+    </section>
+
+    <section class="settings">
+      <article class="dcard fade-in">
+        <span class="eyebrow">Preferencias</span><h2>Notificaciones e idioma</h2>
+        <div class="switch-row"><div><b>Novedades del horno</b><small>Cuando salga algo nuevo o de temporada.</small></div><label class="switch"><input type="checkbox" role="switch" id="pref-novedades" aria-label="Novedades del horno"><span class="knob"></span></label></div>
+        <div class="switch-row"><div><b>Promociones</b><small>Ofertas y descuentos de DAS.</small></div><label class="switch"><input type="checkbox" role="switch" id="pref-promos" aria-label="Promociones"><span class="knob"></span></label></div>
+        <div class="field" style="margin-top:14px"><label class="flabel" for="pref-lang">Idioma</label><div class="control select"><select id="pref-lang"><option value="es">Español</option><option value="en">English</option></select></div></div>
+      </article>
+      <article class="dcard fade-in">
+        <span class="eyebrow">Seguridad</span><h2>Cambiar contraseña</h2>
+        <form class="dform" id="pw-form" novalidate>
+          <div class="field"><label class="flabel" for="pw-current">Contraseña actual</label><div class="control"><input id="pw-current" type="password" autocomplete="current-password"></div><p class="field-error"></p></div>
+          <div class="field"><label class="flabel" for="pw-new">Nueva contraseña</label><div class="control"><input id="pw-new" type="password" autocomplete="new-password"></div><p class="field-error"></p></div>
+          <div><div class="meter" id="meter" data-level=""><i></i><i></i><i></i></div><p class="meter-label" id="meter-label">Mínimo 8 caracteres.</p></div>
+          <div class="field"><label class="flabel" for="pw-new2">Repite la nueva contraseña</label><div class="control"><input id="pw-new2" type="password" autocomplete="new-password"></div><p class="field-error"></p></div>
+          <p class="form-msg" id="pw-msg" aria-live="polite"></p>
+          <div class="form-actions"><button type="submit" class="btn btn-olive sentence">Actualizar contraseña <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></button></div>
+        </form>
+      </article>
+      <article class="dcard wide fade-in">
+        <span class="eyebrow">Tu cuenta</span><h2>Sesión y datos</h2>
+        <div class="form-actions"><button type="button" class="btn btn-soft sentence" id="logout-btn">Cerrar sesión <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></button></div>
+        <div class="danger"><h3>Eliminar mi cuenta</h3><p>Se borrarán tus datos, favoritos y preferencias de este navegador. Esta acción no se puede deshacer.</p><button type="button" class="btn btn-danger sentence" id="delete-btn">Eliminar mi cuenta <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></button></div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <div class="site-footer slim">
+      <div class="footer-slim-row"><a class="brand" href="../dashboard.html"><strong>DAS</strong></a><nav class="footer-bottom" style="margin:0;padding:0;border:0" aria-label="Enlaces"><a href="../../presentation/index.html">Ver el sitio</a><a href="../../presentation/pages/catalogo.html">Catálogo</a><a href="../../presentation/pages/contacto.html">Contacto</a></nav></div>
+      <div class="footer-bottom"><span>© DAS 2026</span><nav aria-label="Legal"><a href="#">Privacidad</a><a href="#">Cookies</a><a href="#">Accesibilidad</a></nav></div>
+    </div>
+  </footer>
+</body>
+</html>
