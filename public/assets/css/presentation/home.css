@@ -1,0 +1,79 @@
+/* DAS Panadería · Inicio, Nosotros y Contacto */
+/* Inicio */
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+.hero-card{display:flex;flex-direction:column;align-items:flex-start;min-height:620px;padding:46px 48px;border-radius:28px;background:var(--sage)}
+.hero-card h1{font-size:clamp(46px,6vw,84px);font-weight:500;letter-spacing:-.04em;line-height:.98;margin:34px 0 22px}
+.lead{font-size:17px;line-height:1.6;color:#4b5144;max-width:430px;margin-bottom:30px}
+.hero-meta{margin-top:auto;padding-top:32px;display:grid;gap:10px;font-size:13.5px;color:var(--muted)}
+.clock{display:flex;align-items:center;gap:10px;color:var(--olive);font-weight:600}
+.clock svg{width:18px;height:18px;display:block}
+.hero-photo{min-height:620px;border-radius:28px}
+.hero-photo img{position:absolute;inset:0;height:100%}
+.signature{position:absolute;left:16px;right:16px;bottom:16px;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:14px;background:#fff;border-radius:22px;padding:16px 18px}
+.signature strong{display:block;font-size:19px;font-weight:600;margin-top:2px}
+.signature small{font-size:13px;color:var(--muted)}
+.pillars{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:24px 10px 0;padding:0;font-size:14px}
+.pillars li{display:flex;gap:12px;align-items:baseline}
+.pillars span{font-size:11px;color:var(--muted);font-weight:600}
+.trio{display:grid;grid-template-columns:1.2fr .9fr .9fr;gap:16px;margin-top:36px}
+.stat-card{display:flex;flex-direction:column;justify-content:space-between;gap:30px;min-height:270px;padding:34px;border-radius:28px;background:var(--olive);color:#fff}
+.stat-card h3{font-size:clamp(24px,2.4vw,32px);font-weight:500;letter-spacing:-.02em;line-height:1.15}
+.stat-row{display:flex;align-items:flex-end;gap:18px}
+.stat-row strong{font-size:clamp(54px,6vw,84px);font-weight:500;letter-spacing:-.04em;line-height:.9}
+.stat-row p{font-size:13.5px;line-height:1.5;color:#dfe5d0;padding-bottom:6px}
+.note-card{display:flex;flex-direction:column;gap:10px;padding:30px;border-radius:28px;background:#fff}
+.note-card.beige{background:var(--beige)}
+.note-ico{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--sage);color:var(--olive)}
+.note-ico svg{width:22px;height:22px;display:block}
+.note-card h3{font-size:22px;font-weight:600;letter-spacing:-.015em;margin-top:auto;padding-top:30px}
+.note-card p{font-size:14.5px;color:var(--muted);line-height:1.55}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.split-photo{min-height:430px;border-radius:28px}
+.split-photo img{position:absolute;inset:0;height:100%}
+.split-card{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:16px;padding:48px;border-radius:28px;background:var(--beige)}
+.split-card h2{font-size:clamp(30px,3.6vw,46px);font-weight:500;letter-spacing:-.03em;line-height:1.05}
+.split-card p{font-size:15.5px;line-height:1.65;color:#5a5f52;max-width:460px}
+@media(max-width:960px){
+  .hero,.trio,.split{grid-template-columns:1fr}
+  .hero-card{min-height:0;padding:34px 28px}
+  .hero-photo{min-height:460px}
+  .pillars{grid-template-columns:repeat(2,1fr)}
+  .split-card{padding:32px 28px}
+  .split-photo{min-height:320px}
+}
+
+/* ===== Nosotros ===== */
+.values{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.value{display:flex;flex-direction:column;gap:10px;padding:26px;border-radius:24px;background:#fff}
+.value .note-ico{margin-bottom:14px}
+.value h3{font-size:19px;font-weight:600;letter-spacing:-.01em}
+.value p{font-size:14.5px;color:var(--muted);line-height:1.55}
+.story{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.story-photo{min-height:440px;border-radius:28px}
+.story-photo img{position:absolute;inset:0;height:100%}
+.story-card{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:16px;padding:48px;border-radius:28px;background:var(--beige)}
+.story-card h2{font-size:clamp(28px,3.4vw,42px);font-weight:500;letter-spacing:-.03em;line-height:1.08}
+.story-card p{font-size:15.5px;line-height:1.7;color:#5a5f52;max-width:480px}
+/* ===== Contacto ===== */
+.contact{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-top:20px;align-items:start}
+.contact-form{padding:34px 36px;display:grid;gap:16px}
+.contact-form h2{font-size:26px;font-weight:600;letter-spacing:-.02em}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cf-field{display:grid;gap:7px}
+.cf-field>span{font-size:13px;font-weight:700}
+.cf-field input,.cf-field select,.cf-field textarea{width:100%;border:1px solid transparent;border-radius:18px;background:var(--bg);padding:15px 18px;font:15px var(--display);color:var(--ink);outline:0;transition:border-color .2s,box-shadow .2s}
+.cf-field textarea{min-height:140px;resize:vertical}
+.cf-field input:focus,.cf-field select:focus,.cf-field textarea:focus{border-color:var(--olive);box-shadow:0 0 0 4px rgba(85,102,58,.14)}
+.cf-field.bad input,.cf-field.bad select,.cf-field.bad textarea{border-color:#b3261e}
+.cf-err{font-size:12.5px;color:#b3261e;min-height:0}
+.cf-err:empty{display:none}
+.cf-msg{font-size:14.5px;font-weight:600;color:var(--olive)}
+.cf-msg:empty{display:none}
+.contact-info{display:grid;gap:16px}
+.info-card{display:flex;gap:16px;align-items:flex-start;padding:24px 26px;border-radius:24px;background:#fff}
+.info-card .note-ico{flex:none}
+.info-card h3{font-size:17px;font-weight:600;margin-bottom:3px}
+.info-card p{font-size:14.5px;color:var(--muted);line-height:1.55}
+.info-card a{color:var(--olive);font-weight:600}
+@media(max-width:960px){.values{grid-template-columns:repeat(2,minmax(0,1fr))}.story,.contact{grid-template-columns:1fr}.story-card{padding:32px 28px}.story-photo{min-height:320px}.contact-form{padding:26px 22px}}
+@media(max-width:560px){.values,.cf-row{grid-template-columns:1fr}}

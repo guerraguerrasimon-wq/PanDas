@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f3ec">
+  <title>Recuperar contraseña · DAS Panadería</title>
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/variables.css">
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/components/feedback.css">
+  <link rel="stylesheet" href="/assets/css/auth/auth.css">
+  <script src="/assets/js/global.js" defer></script>
+  <script src="/assets/js/components/feedback.js" defer></script>
+  <script src="/assets/js/components/validation.js" defer></script>
+  <script src="/assets/js/auth/password.js" defer></script>
+</head>
+<body class="auth-body" data-area="presentation" data-page="recuperar">
+  <div class="auth-page panel-right">
+    <aside class="auth-panel" aria-label="DAS Panadería">
+      <div class="img-slot panel-img"><img class="slot-img" src="/assets/images/general/login-panel.jpg" alt=""></div>
+      <div class="panel-content">
+        <div class="panel-brand"><strong>DAS</strong><span>PANADERÍA</span></div>
+        <h2>¿Olvidaste tu contraseña?</h2>
+        <p>No pasa nada. Te ayudamos a recuperarla en tres pasos.</p>
+        <ul class="feature-list"><li>Escribe tu correo</li><li>Ingresa el código de 6 dígitos</li><li>Crea una contraseña nueva</li></ul>
+      </div>
+    </aside>
+
+    <main class="auth-main">
+      <div class="auth-top"><a class="back-link" href="../index.html">← Volver al sitio</a></div>
+      <section class="auth-card">
+        <div class="m-hero small"><div class="img-slot"><img class="slot-img" src="/assets/images/general/login-celular.jpg" alt=""></div></div>
+        <h1 class="auth-title">Recupera tu contraseña</h1>
+        <p class="auth-sub">Escribe tu correo y te enviaremos un código de 6 dígitos.</p>
+        <form id="recover-form" novalidate>
+          <div class="field" id="email-field">
+            <label class="label" for="email">Correo</label>
+            <div class="control"><input id="email" name="email" type="email" inputmode="email" placeholder="Ej. camila@correo.com" autocomplete="email" autocapitalize="none" spellcheck="false" required><span class="ok-icon" aria-hidden="true">✓</span></div>
+            <p class="field-error" id="email-error"></p>
+          </div>
+          <p class="form-msg" id="form-msg" aria-live="polite"></p>
+          <button class="submit" id="submit" type="submit"><span class="spinner" aria-hidden="true"></span><span class="submit-label">Enviar código</span><b class="arrow" aria-hidden="true">→</b></button>
+        </form>
+        <p class="switch-line">¿La recordaste? <a href="login.html">Inicia sesión</a></p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

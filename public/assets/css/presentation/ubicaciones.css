@@ -1,0 +1,69 @@
+/* DAS Panadería · Visítanos y Envíos y entregas */
+/* Visítanos */
+.store{display:flex;flex-direction:column;background:#fff;border-radius:22px;padding:10px 10px 20px;transition:transform .25s,box-shadow .25s}
+.store:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.store:hover .thumb img{transform:scale(1.05)}
+.store .thumb{aspect-ratio:4/3.1;border-radius:16px}
+.store h3{font-size:22px;font-weight:600;letter-spacing:-.015em;margin:16px 8px 10px}
+.store dl{margin:0 8px 20px;display:grid;gap:7px;font-size:13.5px;color:var(--muted)}
+.store dl div{display:flex;gap:8px}
+.store dt{flex:none;min-width:72px;font-weight:600;color:var(--ink)}
+.store dd{margin:0}
+.store-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding:0 8px}
+.store-foot span{font-size:20px;font-weight:500;letter-spacing:-.01em}
+.suggest{display:grid;grid-template-columns:1.3fr 1fr 1fr auto;gap:14px;align-items:center;padding:24px 28px;margin-top:22px;scroll-margin-top:100px}
+.suggest h3{font-size:18px;font-weight:600}
+.suggest p{font-size:13.5px;color:var(--muted)}
+.suggest .select-pill{width:100%}
+.suggest .select-pill select{background:var(--bg);min-width:0;width:100%}
+.suggest .field input{width:100%;height:54px;border:0;border-radius:999px;background:var(--bg);padding:0 22px;font:15px var(--display);outline:0;color:var(--ink)}
+.suggest .field input:focus{box-shadow:0 0 0 3px rgba(85,102,58,.25)}
+.suggest-msg{grid-column:1/-1;font-size:14px;color:var(--olive);font-weight:600}
+.suggest-msg.err{color:#b3261e}
+.suggest-msg:empty{display:none}
+@media(max-width:1180px){.results .grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}.suggest{grid-template-columns:1fr 1fr}.suggest>div{grid-column:1/-1}}
+@media(max-width:640px){.results .grid-3{grid-template-columns:1fr}.suggest{grid-template-columns:1fr}.toolbar .select-pill{flex:1}}
+
+/* ===== Envíos y entregas (sección #envios) ===== */
+/* Envíos y entregas */
+.options{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.opt{display:flex;flex-direction:column;border-radius:28px;background:#fff;overflow:hidden}
+.opt-olive{background:var(--olive);color:#fff}
+.opt-photo{aspect-ratio:16/8}
+.opt-photo img{position:absolute;inset:0;height:100%}
+.opt-body{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:30px 32px 34px;flex:1}
+.opt-ico{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--sage);color:var(--olive)}
+.opt-olive .opt-ico{background:rgba(255,255,255,.18);color:#fff}
+.opt-ico svg{width:24px;height:24px;display:block}
+.opt-olive .eyebrow{color:#cdd6bb}
+.opt h2{font-size:clamp(26px,3vw,36px);font-weight:500;letter-spacing:-.025em;line-height:1.05}
+.opt p{font-size:15px;line-height:1.6;color:var(--muted)}
+.opt-olive p{color:#e0e6d2}
+.feat{list-style:none;margin:6px 0 12px;padding:0;display:grid;gap:10px}
+.feat li{display:flex;align-items:center;gap:12px;font-size:15px}
+.feat li span{display:grid;place-items:center;flex:none;width:24px;height:24px;border-radius:50%;background:var(--sage);color:var(--olive)}
+.opt-olive .feat li span{background:rgba(255,255,255,.2);color:#fff}
+.feat svg{width:14px;height:14px;display:block}
+.opt .btn{margin-top:auto}
+.coverage{display:grid;grid-template-columns:1fr 1.2fr;gap:36px;align-items:start;padding:36px 40px;margin-top:16px;scroll-margin-top:100px}
+.cov-text h2{font-size:clamp(26px,3vw,36px);font-weight:500;letter-spacing:-.025em;margin:8px 0}
+.cov-text p{color:var(--muted)}
+.cov-form{display:grid;gap:16px}
+.cov-form .select-pill select{background:var(--bg)}
+.cov-result{border-radius:20px;background:var(--bg);padding:20px 22px;font-size:15px;line-height:1.6;min-height:96px;transition:background .3s}
+.cov-result strong{display:block;font-size:18px;margin-bottom:4px}
+.cov-result.ok{background:var(--sage)}
+.cov-result .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.cov-result .chips span{background:#fff;border-radius:999px;padding:6px 12px;font-size:12.5px;font-weight:600;color:var(--olive)}
+.cov-result a{color:var(--olive);font-weight:600}
+.faq h2{font-size:clamp(28px,3.2vw,40px);font-weight:500;letter-spacing:-.025em;margin-bottom:18px}
+.faq details{background:#fff;border-radius:20px;margin-bottom:10px;overflow:hidden}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 24px;font-size:16px;font-weight:600;cursor:pointer;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary span svg{width:20px;height:20px;display:block;transition:transform .25s;color:var(--olive)}
+.faq details[open] summary span svg{transform:rotate(180deg)}
+.faq details p{padding:0 24px 22px;color:var(--muted);font-size:15px;line-height:1.6}
+@media(max-width:960px){.options,.coverage{grid-template-columns:1fr}.coverage{padding:28px 24px;gap:22px}}
+
+.envios-head{margin-top:72px;scroll-margin-top:100px}
+.envios-head .page-hero{margin-top:0}

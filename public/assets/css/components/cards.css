@@ -1,0 +1,17 @@
+/* DAS Panadería · tarjetas de producto y chips */
+.chip{position:absolute;top:10px;left:10px;z-index:1;background:#fff;color:var(--ink);font-size:12px;font-weight:600;padding:6px 13px;border-radius:999px}
+.product{display:flex;flex-direction:column;background:#fff;border-radius:22px;padding:10px 10px 18px;transition:transform .25s,box-shadow .25s}
+.product:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.product:hover .thumb img{transform:scale(1.05)}
+.product .thumb{aspect-ratio:4/3.3;border-radius:16px}
+.product h3{font-size:18px;font-weight:600;letter-spacing:-.01em;margin:14px 8px 3px}
+.product .meta{font-size:13px;color:var(--muted);margin:0 8px 16px}
+.product-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding:0 8px}
+@media(prefers-reduced-motion:reduce){
+  .btn,.product,.go{transition:none}
+}
+.thumb .fav{position:absolute;top:10px;right:10px;z-index:2;display:grid;place-items:center;width:38px;height:38px;border:0;border-radius:50%;background:rgba(255,255,255,.92);color:var(--olive);cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.thumb .fav svg{width:19px;height:19px;display:block;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linejoin:round}
+.thumb .fav:hover{transform:scale(1.1)}
+.thumb .fav.on{background:var(--olive);color:#fff}
+.thumb .fav.on svg{fill:currentColor}

@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f3ec">
+  <title>Nueva contraseña · DAS Panadería</title>
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/variables.css">
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/components/feedback.css">
+  <link rel="stylesheet" href="/assets/css/auth/auth.css">
+  <script src="/assets/js/global.js" defer></script>
+  <script src="/assets/js/components/feedback.js" defer></script>
+  <script src="/assets/js/components/validation.js" defer></script>
+  <script src="/assets/js/auth/password.js" defer></script>
+</head>
+<body class="auth-body" data-area="presentation" data-page="nueva">
+  <div class="auth-page panel-right">
+    <aside class="auth-panel" aria-label="DAS Panadería">
+      <div class="img-slot panel-img"><img class="slot-img" src="/assets/images/general/login-panel.jpg" alt=""></div>
+      <div class="panel-content">
+        <div class="panel-brand"><strong>DAS</strong><span>PANADERÍA</span></div>
+        <h2>Crea tu nueva contraseña</h2>
+        <p>Elige una que sea difícil de adivinar y fácil de recordar.</p>
+        <ul class="feature-list"><li>Mínimo 8 caracteres</li><li>Combina letras, números y símbolos</li><li>No la repitas en otros sitios</li></ul>
+      </div>
+    </aside>
+
+    <main class="auth-main">
+      <div class="auth-top"><a class="back-link" href="../index.html">← Volver al sitio</a></div>
+      <section class="auth-card">
+        <div class="m-hero small"><div class="img-slot"><img class="slot-img" src="/assets/images/general/login-celular.jpg" alt=""></div></div>
+        <h1 class="auth-title">Nueva contraseña</h1>
+        <p class="auth-sub">Elige una contraseña segura que no uses en otro sitio.</p>
+        <form id="new-form" novalidate>
+          <div class="field" id="password-field">
+            <label class="label" for="password">Nueva contraseña</label>
+            <div class="control has-toggle"><input id="password" name="password" type="password" placeholder="Crea una contraseña" autocomplete="new-password" required><span class="ok-icon" aria-hidden="true">✓</span><button type="button" class="eye" data-toggle-password aria-label="Mostrar contraseña" aria-pressed="false"><svg class="on-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18"/><path d="M10.6 6.2A10.7 10.7 0 0 1 12 6c6.4 0 10 6 10 6a17 17 0 0 1-3.2 3.9M6.6 7.7A16.6 16.6 0 0 0 2 12s3.6 6 10 6c1.6 0 3-.4 4.3-1"/><path d="M9.9 10a3 3 0 0 0 4.1 4.1"/></svg></button></div>
+            <p class="field-error" id="password-error"></p>
+          </div>
+          <div class="meter" id="meter" data-level=""><i></i><i></i><i></i></div>
+          <p class="meter-label" id="meter-label">Mínimo 8 caracteres.</p>
+          <div class="field" id="password2-field">
+            <label class="label" for="password2">Repite la contraseña</label>
+            <div class="control has-toggle"><input id="password2" name="password2" type="password" placeholder="Repite la contraseña" autocomplete="new-password" required><span class="ok-icon" aria-hidden="true">✓</span><button type="button" class="eye" data-toggle-password aria-label="Mostrar contraseña" aria-pressed="false"><svg class="on-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18"/><path d="M10.6 6.2A10.7 10.7 0 0 1 12 6c6.4 0 10 6 10 6a17 17 0 0 1-3.2 3.9M6.6 7.7A16.6 16.6 0 0 0 2 12s3.6 6 10 6c1.6 0 3-.4 4.3-1"/><path d="M9.9 10a3 3 0 0 0 4.1 4.1"/></svg></button></div>
+            <p class="field-error" id="password2-error"></p>
+          </div>
+          <p class="form-msg" id="form-msg" aria-live="polite"></p>
+          <button class="submit" id="submit" type="submit"><span class="spinner" aria-hidden="true"></span><span class="submit-label">Guardar contraseña</span><b class="arrow" aria-hidden="true">→</b></button>
+        </form>
+        <div class="expired" id="expired" hidden>
+          <h1 class="auth-title">Enlace vencido</h1>
+          <p class="auth-sub">Para cambiar tu contraseña primero debes verificar tu correo.</p>
+          <a class="submit" href="recuperar-password.html">Empezar de nuevo <b aria-hidden="true">→</b></a>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

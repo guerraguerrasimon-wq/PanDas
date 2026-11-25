@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f3ec">
+  <title>Mi panel · DAS Panadería</title>
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/variables.css">
+  <link rel="stylesheet" href="/assets/css/global.css">
+  <link rel="stylesheet" href="/assets/css/components/navbar.css">
+  <link rel="stylesheet" href="/assets/css/components/footer.css">
+  <link rel="stylesheet" href="/assets/css/components/cards.css">
+  <link rel="stylesheet" href="/assets/css/components/feedback.css">
+  <link rel="stylesheet" href="/assets/css/functionality/dashboard.css">
+  <script src="/assets/js/global.js" defer></script>
+  <script src="/assets/js/components/feedback.js" defer></script>
+  <script src="/assets/js/components/validation.js" defer></script>
+  <script src="/assets/js/components/navbar.js" defer></script>
+  <script src="/assets/js/functionality/dashboard.js" defer></script>
+</head>
+<body data-area="functionality" data-page="panel">
+  <header class="site-header">
+    <div class="wrap header-in">
+      <a class="brand" href="dashboard.html" aria-label="DAS Panadería, inicio"><strong>DAS</strong><small>PANADERÍA</small></a>
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+        <div class="nav-links"><a href="dashboard.html" data-nav="panel" aria-current="page">Mi panel</a><a href="pages/favoritos.html" data-nav="favoritos">Favoritos</a><a href="pages/perfil.html" data-nav="perfil">Mi perfil</a><a href="pages/configuracion.html" data-nav="configuracion">Configuración</a></div>
+        <div class="nav-extra"><a class="btn btn-soft" href="../presentation/index.html">Ver el sitio <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a></div>
+        <div class="account-chip" hidden>
+          <button type="button" class="chip-btn" aria-haspopup="true" aria-expanded="false"><span class="chip-ini">DA</span><span class="chip-name">Hola</span></button>
+          <div class="chip-menu" hidden><a href="dashboard.html">Mi panel</a><a href="pages/favoritos.html">Mis favoritos</a><a href="pages/perfil.html">Mi perfil</a><button type="button" data-logout>Cerrar sesión</button></div>
+        </div>
+      </nav>
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">☰</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="dash-hero fade-in">
+      <div><p class="crumbs">Mi panel</p><h1 id="greet">Hola.</h1><p>Aquí tienes lo tuyo: tus favoritos, tu punto DAS y los datos de tu cuenta.</p></div>
+      <a class="btn btn-olive sentence" href="../presentation/pages/catalogo.html">Ver el catálogo <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a>
+    </section>
+
+    <section class="dash-grid">
+      <article class="dcard span-4 olive fade-in"><span class="eyebrow">Tus favoritos</span><strong class="stat-big" id="fav-count">0</strong><p id="fav-text">productos guardados</p><a class="btn btn-white sentence" href="pages/favoritos.html">Ver mis favoritos <span class="ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a></article>
+      <article class="dcard span-8 fade-in"><span class="eyebrow">Para ti</span><h2>Lo que más te gusta</h2>
+        <div class="fav-mini" id="fav-preview"></div>
+        <p class="empty-note" id="fav-empty">Aún no guardas favoritos. Toca el corazón en el <a href="../presentation/pages/catalogo.html">catálogo</a> para empezar.</p>
+      </article>
+      <article class="dcard span-6 fade-in"><span class="eyebrow">Tu DAS</span><h2>Tu punto preferido</h2>
+        <div class="field"><label class="flabel" for="store-select">Elige el DAS donde sueles pasar</label><div class="control select"><select id="store-select"><option value="">Elige tu DAS</option></select></div></div>
+        <div class="store-info" id="store-info"></div>
+      </article>
+      <article class="dcard span-6 beige fade-in"><span class="eyebrow">Tu cuenta</span><h2>Resumen</h2>
+        <dl class="dsum"><div><dt>Nombre</dt><dd id="sum-name"></dd></div><div><dt>Correo</dt><dd id="sum-mail"></dd></div><div><dt>Teléfono</dt><dd id="sum-phone"></dd></div><div><dt>País e idioma</dt><dd id="sum-lang"></dd></div></dl>
+        <p style="margin-top:18px"><a class="link-arrow" href="pages/perfil.html">Editar mi perfil <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></p>
+      </article>
+      <article class="dcard span-12 fade-in"><span class="eyebrow">Muy pronto</span><h2>Pedidos y seguimiento</h2><p class="empty-note" style="margin-bottom:14px">Pronto podrás hacer tu pedido en línea, elegir domicilio o recogida y seguirlo desde aquí.</p><span class="soon-chip">Próximamente</span></article>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <div class="site-footer slim">
+      <div class="footer-slim-row"><a class="brand" href="dashboard.html"><strong>DAS</strong></a><nav class="footer-bottom" style="margin:0;padding:0;border:0" aria-label="Enlaces"><a href="../presentation/index.html">Ver el sitio</a><a href="../presentation/pages/catalogo.html">Catálogo</a><a href="../presentation/pages/contacto.html">Contacto</a></nav></div>
+      <div class="footer-bottom"><span>© DAS 2026</span><nav aria-label="Legal"><a href="#">Privacidad</a><a href="#">Cookies</a><a href="#">Accesibilidad</a></nav></div>
+    </div>
+  </footer>
+</body>
+</html>

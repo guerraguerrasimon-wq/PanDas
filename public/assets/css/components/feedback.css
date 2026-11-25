@@ -1,0 +1,46 @@
+/* DAS Panadería · detalle de producto, avisos, estados vacíos y pantalla de éxito */
+.dialog{width:min(820px,calc(100% - 32px));border:0;border-radius:28px;padding:0;background:var(--bg);color:var(--ink);box-shadow:0 30px 90px rgba(0,0,0,.35);overflow:hidden}
+.dialog::backdrop{background:rgba(31,35,28,.5);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.dlg-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:0}
+.dlg-thumb{min-height:340px}
+.dlg-body{padding:34px 30px 28px;display:flex;flex-direction:column;gap:10px}
+.dlg-body h2{font-size:34px;font-weight:500;letter-spacing:-.025em;line-height:1.05}
+.dlg-body .meta{font-size:13.5px;color:var(--muted)}
+.dlg-body p{font-size:15px;line-height:1.55}
+.dlg-ing b{display:block;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.dlg-note{font-size:13px!important;color:var(--muted);background:var(--sage);border-radius:14px;padding:10px 14px}
+.dlg-foot{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:auto;padding-top:10px}
+.dlg-x{position:absolute;top:14px;right:14px;z-index:2;width:38px;height:38px;border:0;border-radius:50%;background:#fff;color:var(--ink);font-size:22px;line-height:1;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.12)}
+.dlg-x:hover{background:var(--olive);color:#fff}
+.dialog[open]{animation:pop .3s}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+@media(max-width:960px){
+  .dlg-grid{grid-template-columns:1fr}
+  .dlg-thumb{min-height:220px}
+}
+.empty{padding:36px;text-align:center}
+.empty h3{font-size:22px;font-weight:600;margin-bottom:6px}
+.empty p{color:var(--muted);margin-bottom:18px}
+/* ---------- Éxito y aviso ---------- */
+.success{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:var(--bg);opacity:0;pointer-events:none;transition:opacity .35s}
+.success.show{opacity:1;pointer-events:auto}
+.success-card{text-align:center;padding:24px;width:min(380px,86vw)}
+.check-svg{width:84px;height:84px;color:var(--ok)}
+.check-svg circle{stroke-dasharray:151;stroke-dashoffset:151}
+.check-svg path{stroke-dasharray:48;stroke-dashoffset:48}
+.success.show .check-svg circle{animation:draw .6s .1s ease-out forwards}
+.success.show .check-svg path{animation:draw .4s .55s ease-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.success-card h2{font:800 clamp(36px,5vw,48px)/.95 "Inter",sans-serif;text-transform:uppercase;margin:16px 0 8px}
+.success-card p{color:var(--muted);font-size:16px;margin:0 0 22px}
+.go-line{height:4px;background:var(--line);overflow:hidden;border-radius:2px}
+.go-line span{display:block;height:100%;width:0;background:var(--accent)}
+.success.show .go-line span{animation:go 1.6s linear forwards}
+@keyframes go{to{width:100%}}
+.toast{position:fixed;left:50%;bottom:26px;z-index:60;transform:translate(-50%,20px);max-width:min(440px,90vw);padding:14px 18px;background:#111;color:#fff;border-radius:12px;font-size:14px;line-height:1.45;opacity:0;transition:opacity .25s,transform .25s;box-shadow:0 12px 40px rgba(0,0,0,.35)}
+.toast[hidden]{display:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+
+.toast a{color:#cfe0a8;font-weight:700;margin-left:8px}
+.empty.card{background:#fff}
