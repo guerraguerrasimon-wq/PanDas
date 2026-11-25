@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PanelController;
@@ -17,11 +18,13 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\VerificationController;
 
 /*
-|--------------------------------------------------------------------------
 | Rutas de Presentación (Públicas)
-|--------------------------------------------------------------------------
 */
 Route::get('/', function () {
+    if (auth()->check()) {
+        return app(HomeController::class)->index();
+    }
+
     return view('presentation.index');
 })->name('home');
 
